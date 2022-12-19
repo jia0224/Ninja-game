@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,5 +26,6 @@ public class GameManager : MonoBehaviour
     public void DecreaseHP()
     {
         hpGauge.GetComponent<Image>().fillAmount -= 0.1f;
+        GetComponent<AudioSource>().Play();
     }
 }
