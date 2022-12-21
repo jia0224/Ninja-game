@@ -15,8 +15,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
-        ScoreText.text = "だ计" + Score.ToString();
+        ScoreText.text = $"だ计{Score}";
+        //ScoreText.text = "だ计" + Score.ToString();
+        InvokeRepeating("MakeArrow", 2, 1.0f);
     }
 
     void Update()
@@ -36,10 +37,11 @@ public class GameManager : MonoBehaviour
     {
         hpGauge.GetComponent<Image>().fillAmount -= 0.1f;
         GetComponent<AudioSource>().Play();
+        
     }
     public void IncreaseScore()
     {
         Score += 10;
-        ScoreText.text = $"だ计{Score}";
+        ScoreText.text = "だ计"+Score;
     }
 }

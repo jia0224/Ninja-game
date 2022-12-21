@@ -16,15 +16,12 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -6.5 && IsIncreaseScore == false)
-        {
-            gameManager.GetComponent<GameManager>().IncreaseScore();
-
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Destroy(gameObject);
         if (collision.tag == "Increase Score")
         {
             gameManager.GetComponent<GameManager>().IncreaseScore();
@@ -33,5 +30,6 @@ public class Arrow : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 }
