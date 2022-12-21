@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,13 +22,13 @@ public class Player : MonoBehaviour
         {
             transform.Translate(3, 0, 0);
             //transform.position += new Vector3(3, 0, 0); 
-            GetComponent<AudioSource>().Play();
+            audiosource.PlayOneShot(move);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.Translate(-3, 0, 0);
-            GetComponent<AudioSource>().Play();
+            audiosource.PlayOneShot(move);
         }
     }
 
@@ -37,14 +37,14 @@ public class Player : MonoBehaviour
     public void LButtonDown()
     {
         transform.Translate(-3, 0, 0);
-        
+        audiosource.PlayOneShot(move);
     }
 
     // 當玩家按下畫面右按鍵時，貓咪往右移動「3」
     public void RButtonDown()
     {
         transform.Translate(3, 0, 0);
-       
+        audiosource.PlayOneShot(move);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

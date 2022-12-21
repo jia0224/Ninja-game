@@ -14,12 +14,13 @@ public class GameManager : MonoBehaviour
     public GameObject hpGauge;
     public int blood = 10;
     public Text ScoreText;
-    int Score = 0;
+    public int Score = 0;
 
     private void Start()
     {
         Score = 0;
         blood = 10;
+        ScoreText.text = "分數" + Score;
         InvokeRepeating("ArrowShot", 0, 1.0f);
         InvokeRepeating("CatFood", 4.5f, 5.0f);
     }
@@ -49,14 +50,13 @@ public class GameManager : MonoBehaviour
     public void DecreaseHP()//被箭頭擊中扣血
     {
         hpGauge.GetComponent<Image>().fillAmount -= 0.1f;
-        GetComponent<AudioSource>().Play();//聲音
         blood -= 1;
         if(blood<=0)
         {
             SceneManager.LoadScene("GameOver");
         }
     }
-    public void AddHp()
+    public void AddHp()//接到罐頭加血
     {
         hpGauge.GetComponent<Image>().fillAmount += 0.1f;
         blood += 1;

@@ -1270,10 +1270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8773174226768940060, guid: 37f4f68b22dbc4648ba6d0babb9c7568, type: 3}
-  catfoodPrefab: {fileID: 7592785406836039794, guid: 02a90123bd5f66240b920430c1f8d385, type: 3}
+  catfoodPrefab: {fileID: 2112496371533803201, guid: 02a90123bd5f66240b920430c1f8d385, type: 3}
   hpGauge: {fileID: 1892006259}
   blood: 10
   ScoreText: {fileID: 1239377292}
+  Score: 0
 --- !u!4 &1935875358
 Transform:
   m_ObjectHideFlags: 0
