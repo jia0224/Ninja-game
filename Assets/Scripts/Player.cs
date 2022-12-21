@@ -6,8 +6,10 @@ using UnityEngine.Audio;
 public class Player : MonoBehaviour
 {
     public GameObject gameManager;
-    
-    // Start is called before the first frame update
+    AudioSource audiosource;
+    public AudioClip move;
+    public AudioClip gethit;
+
     void Start()
     {
         
@@ -30,10 +32,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        gameManager.GetComponent<GameManager>().DecreaseHP();
-    }
 
     // 當玩家按下畫面左按鍵時，貓咪往左移動「3」
     public void LButtonDown()
@@ -48,6 +46,21 @@ public class Player : MonoBehaviour
         transform.Translate(3, 0, 0);
        
     }
- 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        gameManager.GetComponent<GameManager>().DecreaseHP();
+        audiosource.PlayOneShot(gethit);
+        if (collision.tag == "Arrow")
+        {
+            gameManager.GetComponent<GameManager>().DecreaseHP();
+            audiosource.PlayOneShot(gethit);
+        }
+        if (collision.tag == "catfood")
+        {
+            gameManager.GetComponent<GameManager>().AddHp();
+            audiosource.PlayOneShot(gethit);
+        }
+
+    }
+
 }
