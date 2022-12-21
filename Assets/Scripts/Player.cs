@@ -48,10 +48,10 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameManager.GetComponent<GameManager>().DecreaseHP();
-        audiosource.PlayOneShot(gethit);
+      
         if (collision.tag == "Arrow")
         {
+            
             gameManager.GetComponent<GameManager>().DecreaseHP();
             audiosource.PlayOneShot(gethit);
         }
